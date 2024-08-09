@@ -97,6 +97,10 @@ The script uses environment variables for sensitive information such as credenti
 
 1. Download the ZIP file and UNZIP in your chosen PATH.
 
+![Screenshot (3)](https://github.com/user-attachments/assets/56994e48-a54d-415c-8706-5aad60bc9637)
+
+![Screenshot 2024-08-09 165613](https://github.com/user-attachments/assets/a0fa4062-179f-4311-bde4-1eafb8430c87)
+
 2. Open the folder and Copy the PATH address. By right clicking the Folder as shown. 
 
 ![Screenshot 2024-08-08 160502](https://github.com/user-attachments/assets/b1b3dfd1-8bdd-4668-b5fb-b36059f5d971)
