@@ -1,0 +1,10 @@
+Value MAC_ADDRESS ([0-9A-Fa-f:]+)
+Value IP_ADDRESS (\d+\.\d+\.\d+\.\d+)
+Value TUNNEL (\S*)
+
+Start
+  ^\s*Command Execution Time: .*
+  ^\s*IP_ADDRESS\s+MAC_ADDRESS\s+VLAN\s+PORT\s+TYPE\s+TTL\(10 Sec\)\s+TUNNEL
+  ^${IP_ADDRESS}\s+${MAC_ADDRESS}\s+\d+\s+\S+\s+\S+\s+\d+\s+${TUNNEL} -> Record
+
+EOF

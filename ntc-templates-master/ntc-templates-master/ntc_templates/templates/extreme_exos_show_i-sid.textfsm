@@ -1,0 +1,12 @@
+Value ISID (\d+)
+Value VID (\d+)
+Value UNI_TYPE (\S+)
+Value PORTS (.+)
+
+Start
+  ^\s*I-SID\s+Vid\s+UNI-type\s+Ports -> Records
+
+Records
+  ^\s*${ISID}\s+${VID}\s+${UNI_TYPE}\s+${PORTS} -> Record
+
+EOF

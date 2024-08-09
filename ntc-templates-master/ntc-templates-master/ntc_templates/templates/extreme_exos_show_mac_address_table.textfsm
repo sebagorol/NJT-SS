@@ -1,0 +1,21 @@
+Value TIME (\d+-\d+-\d+ \d+:\d+:\d+ \w+:\d+)
+Value AGING_TIME (\d+)
+Value LEARNING_ENABLED_PORTS (\S+)
+Value NUM_ADDRESSES (\d+)
+Value MAC_ADDRESS ([0-9A-Fa-f\-]+)
+Value VID (\d+)
+Value TYPE (\w+)
+Value SOURCE (Trunk:\d+|Port: ?\d+|Self)
+
+Start
+  ^\s*Command Execution Time: ${TIME}
+  ^Mac Address Table Aging Time: ${AGING_TIME}
+  ^Learning Enabled Ports ${LEARNING_ENABLED_PORTS}
+  ^Number of addresses: ${NUM_ADDRESSES}
+  ^\s*MAC Address\s+Vid\s+Type\s+Source -> TableStart
+
+TableStart
+  ^----------------- ---- ------- -------------- -> Table
+
+Table
+  ^\s*${MAC_ADDRESS}\s+${VID}\s+${TYPE}\s+${SOURCE}\s*$$

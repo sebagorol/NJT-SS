@@ -1,0 +1,17 @@
+Value Destination (^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)
+Value Mask ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)
+Value NextHop (\S+)
+Value VRF_ISID (\S+)
+Value Cost (\d+)
+Value Interface (\d+)
+Value Protocol (\S+)
+Value Age (\d+)
+Value Type (\S+)
+Value Preference (\d+)
+
+Start
+  ^\*+\s*$$
+  ^=+\s+IP Route - VRF corp_users\s+=+\s*$$
+  ^-+\s*DST\s+MASK\s+NEXT\s+VRF/ISID\s+COST\s+INTER\s+PROT\s+AGE\s+TYPE\s+PRF\s*$$
+  ^-+\s*$$
+  ^\s*${Destination}\s+${Mask}\s+${NextHop}\s+${VRF_ISID}\s+${Cost}\s+${Interface}\s+${Protocol}\s+${Age}\s+${Type}\s+${Preference}\s* -> Record

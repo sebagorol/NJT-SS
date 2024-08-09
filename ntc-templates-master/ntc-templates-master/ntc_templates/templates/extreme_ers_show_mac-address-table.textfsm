@@ -1,0 +1,14 @@
+Value MAC_ADDRESS (\S+)
+Value VID (\d+)
+Value TYPE (\S+)
+Value UNIT (\d*)
+Value PORT (\d*)
+Value TRUNK (\d*)
+
+Start
+  ^\s*MAC Address\s+Vid\s+Type\s+Source
+  ^\s*----------------- ---- ------- --------------
+  ^${MAC_ADDRESS}\s+${VID}\s+${TYPE}\s+Trunk:\s*${TRUNK}\s* -> Record
+  ^${MAC_ADDRESS}\s+${VID}\s+${TYPE}\s+Port:\s*${PORT}\s* -> Record
+  ^${MAC_ADDRESS}\s+${VID}\s+${TYPE}\s+Unit:\s*${UNIT}\s+Port:\s*${PORT}\s* -> Record
+  ^\* -> Start

@@ -1,0 +1,11 @@
+Value VLAN_ID (\d+)
+Value NAME (.+)
+Value MAC_ADDRESS ((?:[0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2})
+
+Start
+  ^\s*Command Execution Time: .*
+  ^\s*Vlan Advance.*
+  ^\s*VLAN\s+IF\s+AGING\s+MAC\s+USER
+  ^\s*ID\s+NAME\s+INDEX\s+TIME\s+ADDRESS\s+DEFINEPID
+  ^\s*[-\s]+
+  ^\s*${VLAN_ID}\s+${NAME}\s+\S+\s+\d+\s+${MAC_ADDRESS}\s+.* -> Record

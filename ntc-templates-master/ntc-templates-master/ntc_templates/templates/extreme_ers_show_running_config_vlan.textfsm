@@ -1,0 +1,39 @@
+Value VLAN_ID (\d+)
+Value VLAN_NAME ("[^"]*"|[^\s]+)
+Value ISID (\d+)
+Value IP (\d+\.\d+\.\d+\.\d+)
+Value SUBNET_MASK (\d+\.\d+\.\d+\.\d+)
+Value VRF (\S+)
+
+Start
+  ^vlan create ${VLAN_ID} name ${VLAN_NAME} -> VLAN
+  ^vlan create ${VLAN_ID} -> VLAN
+  ^vlan i-sid ${VLAN_ID} ${ISID} -> VLAN_ISID
+  ^interface Vlan ${VLAN_ID} -> INTERFACE
+
+VLAN
+  ^vlan i-sid ${VLAN_ID} ${ISID} -> VLAN_ISID
+  ^interface Vlan ${VLAN_ID} -> INTERFACE
+  ^vlan create ${VLAN_ID} name ${VLAN_NAME} -> VLAN
+  ^vlan create ${VLAN_ID} -> VLAN
+  ^exit -> Record Start
+
+VLAN_ISID
+  ^interface Vlan ${VLAN_ID} -> INTERFACE
+  ^vlan create ${VLAN_ID} name ${VLAN_NAME} -> VLAN
+  ^vlan create ${VLAN_ID} -> VLAN
+  ^exit -> Record Start
+
+INTERFACE
+  ^vrf ${VRF} -> VRF
+  ^ip address ${IP} ${SUBNET_MASK} \d+ -> IP_SUBNET
+  ^exit -> Record Start
+
+VRF
+  ^ip address ${IP} ${SUBNET_MASK} \d+ -> IP_SUBNET
+  ^exit -> Record Start
+
+IP_SUBNET
+  ^exit -> Record Start
+
+EOF

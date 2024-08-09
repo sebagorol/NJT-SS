@@ -1,0 +1,24 @@
+Value ID (\d+)
+Value Name (\S[\S\s]+?\S)
+Value Type (\S+)
+Value Protocol (\S+)
+Value PID (\S+)
+Value Active (Yes|No)
+Value IVL_SVL (\S+)
+Value Mgmt (Yes|No)
+Value Members (.*)
+
+Start
+  ^\s*Id\s+Name\s+Type\s+Protocol\s+PID\s+Active\s+IVL\/SVL\s+Mgmt\s*$$ -> VlanHeader
+  ^\s*----\s+--------------------\s+--------\s+----------------\s+-------\s+------\s+-------\s+----\s*$$ -> VlanHeader
+
+VlanHeader
+  ^\s*(?P<ID>\d+)\s+(?P<Name>\S[\S\s]+?\S)\s+(?P<Type>\S+)\s+(?P<Protocol>\S+)\s+(?P<PID>\S+)\s+(?P<Active>Yes|No)\s+(?P<IVL_SVL>\S+)\s+(?P<Mgmt>Yes|No)\s*$$ -> Record StartMembers
+
+StartMembers
+  ^\s*Port Members:\s+(?P<Members>.+?)$$ -> Members
+  
+Members
+  ^\s*(?P<ID>\d+)\s+(?P<Name>\S[\S\s]+?\S)\s+(?P<Type>\S+)\s+(?P<Protocol>\S+)\s+(?P<PID>\S+)\s+(?P<Active>Yes|No)\s+(?P<IVL_SVL>\S+)\s+(?P<Mgmt>Yes|No)\s*$$ -> Record StartMembers
+  ^\s*Port Members:\s+(?P<Members>.+?)$$ -> Members
+  ^Total VLANs:\s+\d+\s*$$ -> End

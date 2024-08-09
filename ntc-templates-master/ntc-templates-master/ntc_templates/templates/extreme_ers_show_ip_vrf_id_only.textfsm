@@ -1,0 +1,19 @@
+Value TIME (\w+ \w+ \d+ \d+:\d+:\d+ \d+ \w+)
+Value VRF_NAME (\S+)
+Value VRF_ID (\d+)
+Value VRF_VLAN_COUNT (\d+)
+Value VRF_ARP_COUNT (\d+)
+Value VRF_RIP (\S+)
+Value VRF_OSPF (\S+)
+Value VRF_BGP (\S+)
+Value VRF_PIM (\S+)
+Value VRF_NBRv6_COUNT (\d+)
+Value VRF_RIPng (\S+)
+Value VRF_OSPFv3 (\S+)
+Value VRF_PIM6 (\S+)
+Value VRF_UNICAST_ACTIVE (\S+)
+Value VRF_ORIGIN (\S+)
+
+Start
+  ^\s*Command Execution Time: ${TIME}
+  ^\s*${VRF_NAME}\s+${VRF_ID}\s+${VRF_VLAN_COUNT}\s+${VRF_ARP_COUNT}\s+${VRF_RIP}\s+${VRF_OSPF}\s+${VRF_BGP}\s+${VRF_PIM}\s+${VRF_NBRv6_COUNT}\s+${VRF_RIPng}\s+${VRF_OSPFv3}\s+${VRF_PIM6}\s+${VRF_UNICAST_ACTIVE}\s+${VRF_ORIGIN}\s*$$ -> Record

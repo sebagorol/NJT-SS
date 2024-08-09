@@ -1,0 +1,10 @@
+Value UNIT (\d+)
+Value PORT (\d+)
+Value NAME ([\S ]+)
+
+Start
+  ^(Unit/Port Name|Port Name)
+  ^-+ -+
+  ^(${UNIT}/)?${PORT}\s+${NAME} -> Record
+
+EOF

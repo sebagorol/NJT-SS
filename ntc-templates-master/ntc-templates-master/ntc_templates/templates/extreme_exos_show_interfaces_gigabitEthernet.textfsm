@@ -1,0 +1,15 @@
+Value PORT (\d+\/\d+)
+Value INDEX (\d+)
+Value DESCRIPTION (\S+)
+Value LINK_TRAP (\S+)
+Value PORT_LOCK (\S+)
+Value MTU (\d+)
+Value PHYSICAL_ADDRESS ([\da-f:]+)
+Value ADMIN_STATUS (\S+)
+Value OPERATE_STATUS (\S+)
+
+Start
+  ^\s*PORT\s+LINK\s+PORT\s+PHYSICAL\s+STATUS -> Ports
+
+Ports
+  ^${PORT}\s+${INDEX}\s+${DESCRIPTION}\s+${LINK_TRAP}\s+${PORT_LOCK}\s+${MTU}\s+${PHYSICAL_ADDRESS}\s+${ADMIN_STATUS}\s+${OPERATE_STATUS}\s*$$ -> Record

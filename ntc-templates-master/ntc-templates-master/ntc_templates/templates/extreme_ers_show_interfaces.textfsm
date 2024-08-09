@@ -1,0 +1,25 @@
+Value UNIT_PORT (\d+(?:/\d+)?)
+Value TRUNK (\d*)
+Value ADMIN_STATUS (\S+)
+Value OPER_STATUS (\S+)
+Value LINK_STATUS (\S+)
+Value LINK_TRAP (\S+)
+Value NEGOTIATION (\S+)
+Value SPEED (\S*)
+Value DUPLEX (\S*)
+Value FLOW_CONTROL (\S*)
+
+Start
+  ^\s*Status\s+Auto\s+Flow -> Headers
+  ^\s*Unit\s+Status\s+Auto\s+Flow -> Headers
+  ^\s*Port\s+Trunk\s+Admin\s+Oper\s+Link\s+LinkTrap\s+Negotiation\s+Speed\s+Duplex\s+Control -> Headers
+  ^\s*Port\s+Admin\s+Oper\s+Link\s+LinkTrap\s+Negotiation\s+Speed\s+Duplex\s+Control -> Headers
+  ^\s*----\s+(?:-----\s+)?-------\s+----\s+----\s+--------\s+-----------\s+--------\s+------\s+------- -> RecordStart
+
+Headers
+  ^\s*Port\s+Trunk\s+Admin\s+Oper\s+Link\s+LinkTrap\s+Negotiation\s+Speed\s+Duplex\s+Control -> RecordStart
+  ^\s*Port\s+Admin\s+Oper\s+Link\s+LinkTrap\s+Negotiation\s+Speed\s+Duplex\s+Control -> RecordStart
+
+RecordStart
+  ^\s*${UNIT_PORT}\s+(?:${TRUNK}\s+)?${ADMIN_STATUS}\s+${OPER_STATUS}\s+${LINK_STATUS}\s+${LINK_TRAP}\s+${NEGOTIATION}(\s+${SPEED})?(\s+${DUPLEX})?(\s+${FLOW_CONTROL})?\s*$$ -> Record
+  ^\s*${UNIT_PORT}\s+${ADMIN_STATUS}\s+${OPER_STATUS}\s+${LINK_STATUS}\s+${LINK_TRAP}\s+${NEGOTIATION}(\s+${SPEED})?(\s+${DUPLEX})?(\s+${FLOW_CONTROL})?\s*$$ -> Record

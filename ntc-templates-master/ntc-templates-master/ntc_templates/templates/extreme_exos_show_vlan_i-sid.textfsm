@@ -1,0 +1,10 @@
+Value VLAN_ID (\d+)
+Value I_SID (\d+|)
+
+Start
+  ^\s*VLAN_ID\s+I-SID\s*$$ -> VlanHeader
+  ^-+ -> VlanHeader
+
+VlanHeader
+  ^\s*(?P<VLAN_ID>\d+)\s+(?P<I_SID>\d*)\s*$$ -> Record
+  ^\s*(?P<VLAN_ID>\d+)\s*$$ -> Record
