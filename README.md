@@ -140,6 +140,7 @@ The script uses environment variables for sensitive information such as credenti
       keyring.set_password("network", "password", "YOUR_PASSWORD")
       keyring.set_password("network", "enable_pass", "YOUR_PASSWORD")
    ```
+   SAVE!!!
 9. Run the script so your Credentials are saved the keyring. 
    ```script
       python password_encrypt.py
@@ -150,7 +151,7 @@ The script uses environment variables for sensitive information such as credenti
    ```script
        notepad PATH_CONVERTER.py
    ```
-
+SAVE!!!
 11. Insert PATH from Earlier in the highlighed AREA shown in the picture.
 
 ![image](https://github.com/user-attachments/assets/46ce1481-256f-4f73-957d-5a7dc6347852)
@@ -166,11 +167,12 @@ The script uses environment variables for sensitive information such as credenti
    ```script
        notepad Network_Scraper.py
    ```
-13. Insert the Converted PATH to the highlighted area as shown in the Image.
+13. Scroll down and Insert the Converted PATH Inide the highlighted area as shown in the Image.
 
+![Screenshot 2024-08-09 163000](https://github.com/user-attachments/assets/157cd057-113a-457d-940c-5f72c6a72807)
 
-
-14. as
+SAVE!!!
+14. 
 
 15. 
 
@@ -181,13 +183,6 @@ The script uses environment variables for sensitive information such as credenti
       notepad Switch.txt
       notepad Router.txt
    ```
-
-13.  Place your device IPs in Switch.txt and Router.txt.
-   ```script
-      notepad Switch.txt
-      notepad Router.txt
-   ```
- 
 
 ### Running the Script
 
