@@ -97,7 +97,7 @@ The script uses environment variables for sensitive information such as credenti
 
 1. Download the ZIP file and UNZIP in your chosen PATH.
 
-2. Copy the PATH address. By right clicking the Folder as shown. 
+2. Open the folder and Copy the PATH address. By right clicking the Folder as shown. 
 
 ![Screenshot 2024-08-08 160502](https://github.com/user-attachments/assets/b1b3dfd1-8bdd-4668-b5fb-b36059f5d971)
 
@@ -145,17 +145,25 @@ The script uses environment variables for sensitive information such as credenti
       python password_encrypt.py
    ```
 
-10. Place your device IPs in Switch.txt and Router.txt.
+10. Now we will convert the PATH with the correct format using the PATH_CONVERTER.py.
+   OPEN
+   ```script
+       notepad PATH_CONVERTER.py
+   ```
+
+11. asd
+
+12. Place your device IPs in Switch.txt and Router.txt.
    ```script
       notepad Switch.txt
       notepad Router.txt
    ```
 
-11. asd
-
-12. asd
-
-13. 
+13.  Place your device IPs in Switch.txt and Router.txt.
+   ```script
+      notepad Switch.txt
+      notepad Router.txt
+   ```
  
 
 ### Running the Script
