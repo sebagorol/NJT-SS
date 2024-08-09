@@ -146,14 +146,26 @@ The script uses environment variables for sensitive information such as credenti
    ```
 
 10. Now we will convert the PATH with the correct format using the PATH_CONVERTER.py.
-   OPEN
+    In PowerShell use this Command to edit the IPs
    ```script
        notepad PATH_CONVERTER.py
    ```
 
-11. asd
+11. Insert PATH from Earlier in the highlighed AREA shown in the picture.
 
-12. Place your device IPs in Switch.txt and Router.txt.
+![image](https://github.com/user-attachments/assets/46ce1481-256f-4f73-957d-5a7dc6347852)
+
+   Run the script using the command as shown and copy the Converted output as shown.
+   
+   ```script
+       python PATH_CONVERTER.py
+   ```
+![image](https://github.com/user-attachments/assets/f3b69117-3258-4c70-b727-cfca38ce0717)
+
+12. 
+
+13. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
+    In PowerShell use these commands to edit the IPs.
    ```script
       notepad Switch.txt
       notepad Router.txt
