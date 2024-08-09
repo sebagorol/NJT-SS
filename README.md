@@ -97,7 +97,8 @@ The script uses environment variables for sensitive information such as credenti
 
 1. Download the ZIP file and UNZIP in your chosen PATH.
 
-![Screenshot (3)](https://github.com/user-attachments/assets/56994e48-a54d-415c-8706-5aad60bc9637)
+![Screenshot 2024-08-09 171453](https://github.com/user-attachments/assets/8bfbcf10-68c7-421a-8e45-de94ef264012)
+
 
 ![Screenshot 2024-08-09 165613](https://github.com/user-attachments/assets/a0fa4062-179f-4311-bde4-1eafb8430c87)
 
