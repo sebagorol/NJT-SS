@@ -155,16 +155,27 @@ The script uses environment variables for sensitive information such as credenti
 
 ![image](https://github.com/user-attachments/assets/46ce1481-256f-4f73-957d-5a7dc6347852)
 
-   Run the script using the command as shown and copy the Converted output as shown.
+12. Run the script using the command as shown and copy the Converted output as shown.
    
    ```script
        python PATH_CONVERTER.py
    ```
 ![image](https://github.com/user-attachments/assets/f3b69117-3258-4c70-b727-cfca38ce0717)
 
-12. 
+12. Open Network_Scraper.py in Notepad using PowerShell with the commands shown.
+   ```script
+       notepad Network_Scraper.py
+   ```
+13. Insert the Converted PATH to the highlighted area as shown in the Image.
 
-13. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
+
+
+14. as
+
+15. 
+
+16. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
+
     In PowerShell use these commands to edit the IPs.
    ```script
       notepad Switch.txt
