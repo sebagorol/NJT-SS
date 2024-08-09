@@ -1,7 +1,7 @@
-# Network Data Collector
+# Network Data Scraper
 
 ## Overview
-The Network Data Collector is a comprehensive Python script designed to automate the process of collecting, analyzing, and backing up network device configurations. It interacts with network devices such as routers and switches to gather various data points including VRF IDs, ARP entries, MAC addresses, interface information, port statuses, and VLAN configurations. The collected data is then processed, merged, and exported into an Excel file with conditional formatting for easier analysis.
+The Network Data Scraper is a comprehensive Python script designed to automate the process of collecting, analyzing, and backing up network device configurations. It interacts with network devices such as routers and switches to gather various data points including VRF IDs, ARP entries, MAC addresses, interface information, port statuses, and VLAN configurations. The collected data is then processed, merged, and exported into an Excel file with conditional formatting for easier analysis.
 
 ## Features
 
