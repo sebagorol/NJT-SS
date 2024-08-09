@@ -129,7 +129,7 @@ The script uses environment variables for sensitive information such as credenti
       pip install  --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
 
-8. Save your Network Credentials in the Keyring using password_encrpyt.py.
+8. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
 
    ```script
       notepad password_encrypt.py
@@ -140,18 +140,17 @@ The script uses environment variables for sensitive information such as credenti
       keyring.set_password("network", "password", "YOUR_PASSWORD")
       keyring.set_password("network", "enable_pass", "YOUR_PASSWORD")
    ```
-   SAVE!!!
 9. Run the script so your Credentials are saved the keyring. 
    ```script
       python password_encrypt.py
    ```
 
-10. Now we will convert the PATH with the correct format using the PATH_CONVERTER.py.
+10. Now we will convert the PATH with the correct format using the PATH_CONVERTER.py. SAVE!!!
+
     In PowerShell use this Command to edit the IPs
    ```script
        notepad PATH_CONVERTER.py
    ```
-SAVE!!!
 11. Insert PATH from Earlier in the highlighed AREA shown in the picture.
 
 ![image](https://github.com/user-attachments/assets/46ce1481-256f-4f73-957d-5a7dc6347852)
@@ -167,22 +166,28 @@ SAVE!!!
    ```script
        notepad Network_Scraper.py
    ```
-13. Scroll down and Insert the Converted PATH Inide the highlighted area as shown in the Image.
+13. Scroll down and Insert the Converted PATH Inide the highlighted area as shown in the Image. SAVE!!!
 
 ![Screenshot 2024-08-09 163000](https://github.com/user-attachments/assets/157cd057-113a-457d-940c-5f72c6a72807)
 
-SAVE!!!
-14. 
-
-15. 
-
-16. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
-
-    In PowerShell use these commands to edit the IPs.
+14. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
+    
+    In PowerShell use these commands to add/edit the IPs.
    ```script
       notepad Switch.txt
       notepad Router.txt
    ```
+
+15. Ready to RUN!!! Use this command to Start SCRAPING! 
+   ```script
+      python Network_Scraper.py
+   ```
+16. OUTPUT
+
+![Screenshot 2024-08-09 164736](https://github.com/user-attachments/assets/d3a4afd1-f2ac-4db8-b49d-e006fb85e471)
+
+![Screenshot 2024-08-09 164745](https://github.com/user-attachments/assets/b10b8188-a34b-4c35-a3f2-ba78c5afec4b)
+
 
 ### Running the Script
 
