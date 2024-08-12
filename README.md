@@ -94,19 +94,25 @@ The script uses environment variables for sensitive information such as credenti
 - Required Python libraries: `netmiko`, `textfsm`, `pandas`, `openpyxl`, `python-dotenv`
 
 ### Installation
-
-1. Download the ZIP file and move it from Downloads to Desktop. UNZIP in your Desktop Directory.
+1. Download Python from the Microsoft Store
+2. Download the ZIP file and move it from Downloads to Desktop. UNZIP in your Desktop Directory.
 
 ![Screenshot 2024-08-09 171453](https://github.com/user-attachments/assets/8bfbcf10-68c7-421a-8e45-de94ef264012)
 
 
 ![Screenshot 2024-08-09 165613](https://github.com/user-attachments/assets/a0fa4062-179f-4311-bde4-1eafb8430c87)
 
-2. Open Windows PowerShell and use "cd" command and to get to your PATH where your folder is located.
+3. Open Windows PowerShell and use "cd" command and to get to your PATH where your folder is located.
     ```bash
       cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper-main\'
     ```
-3. Write this command before activating the Virtual Enviorment.
+4.Create a python virtual enviorment named Scraper.
+
+   ```bash
+     python -m venv Scraper
+   ```
+
+5. Write this command before activating the Virtual Enviorment.
    ```bash
      Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    ```
@@ -118,17 +124,17 @@ ONCE DONE PUT BACK TO RESTRICTED
    ```bash
       Set-ExecutionPolicy -ExecutionPolicy Restricted
    ```
-4. Activate the Scraper venv by using this command.
+6. Activate the Scraper venv by using this command.
    ```bash
-      .\NetScraper\Scraper\Scripts\Activate
+      .\NetScraper-main\Scraper\Scripts\Activate
    ```  
-5. Install the required libraries:
+7. Install the required libraries:
    ```bash
-      pip install -r .\requirements.txt
+      pip install -r .\NetScraper-main\requirements.txt
    ```
    or
    ```bash
-      pip install -r .\NetScraper\requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
+      pip install -r .\NetScraper-main\requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
 
    
@@ -138,10 +144,10 @@ ONCE DONE PUT BACK TO RESTRICTED
       pip install (package) --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
 
-6. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
+8. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
 
    ```script
-      notepad password_encrypt.py
+      notepad ./NetScraper-main/password_encrypt.py
    ```
 
    ```python
@@ -149,24 +155,24 @@ ONCE DONE PUT BACK TO RESTRICTED
       keyring.set_password("network", "password", "YOUR_PASSWORD")
       keyring.set_password("network", "enable_pass", "YOUR_PASSWORD")
    ```
-7. Run the script so your Credentials are saved the keyring. 
+9. Run the script so your Credentials are saved the keyring. 
    ```script
-      python password_encrypt.py
+      python ./NetScraper-main/password_encrypt.py
    ```
 
-8. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
+10. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
     
     In PowerShell use these commands to add/edit the IPs.
    ```script
-      notepad Switch.txt
-      notepad Router.txt
+      notepad ./NetScraper-main/Switch.txt
+      notepad ./NetScraper-main/Router.txt
    ```
-9. Ready to RUN!!! Use this command to Start SCRAPING! 
+11. Ready to RUN!!! Use this command to Start SCRAPING! 
    ```script
-      python Network_Scraper.py
+      python ./NetScraper-main/Network_Scraper.py
    ```
 
-10. OUTPUT
+12. OUTPUT
 
 ![Screenshot 2024-08-09 164736](https://github.com/user-attachments/assets/d3a4afd1-f2ac-4db8-b49d-e006fb85e471)
 
@@ -177,7 +183,7 @@ ONCE DONE PUT BACK TO RESTRICTED
 
 1. Change directory to folder PATH.
 ```bash
-   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Analyst-SS-main\'
+   cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper-main\'
 ```
 2. Activate the virtual environment if not already activated:
 ```bash
