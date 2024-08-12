@@ -94,19 +94,19 @@ The script uses environment variables for sensitive information such as credenti
 - Required Python libraries: `netmiko`, `textfsm`, `pandas`, `openpyxl`, `python-dotenv`
 
 ### Installation
-1. Download Python from the Microsoft Store
-2. Download the ZIP file and move it from Downloads to Desktop. UNZIP in your Desktop Directory.
+1. Download Python from the Microsoft Store. Must have Python predownloaded to run the script.
+2. Download the ZIP file and move it from Downloads to Desktop. UNZIP/Extract All in your Desktop Directory.
 
 ![Screenshot 2024-08-09 171453](https://github.com/user-attachments/assets/8bfbcf10-68c7-421a-8e45-de94ef264012)
 
 
 ![Screenshot 2024-08-09 165613](https://github.com/user-attachments/assets/a0fa4062-179f-4311-bde4-1eafb8430c87)
 
-3. Open Windows PowerShell and use "cd" command and to get to your PATH where your folder is located.
+3. Open Windows PowerShell and use "cd" command or COPY&PASTE the command to get to your PATH where your folder is located.
     ```bash
        cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper-main\'
     ```
-4.Create a python virtual enviorment named Scraper.
+4. Create a python virtual enviorment named Scraper.
 
    ```bash
       python -m venv Scraper
@@ -130,14 +130,9 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
    ```  
 7. Install the required libraries:
    ```bash
-      pip install -r .\NetScraper-main\requirements.txt
-   ```
-   or
-   ```bash
       pip install -r .\NetScraper-main\requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
-
-   
+ 
    If doesn't work than can also manually install using this command.
    
    ```bash
@@ -187,25 +182,29 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
 ```
 2. Activate the virtual environment if not already activated:
 ```bash
-   Set-ExecutionPolicy RemoteSigned -Scope Process
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 ```bash
-.\Scraper\Scripts\Activate
+   .\Scraper\Scripts\Activate
 ```
 3. Add IPs to Switch.txt and Router.txt
 ```script
-      notepad Switch.txt
-      notepad Router.txt
+      notepad ./NetScraper-main/Switch.txt
+      notepad ./NetScraper-main/Router.txt
 ```
 4. Run the script:
 ```bash
-   python Network_Scraper.py
+   python ./NetScraper-main/Network_Scraper.py
 ```
 4. Deactivating the Virtual Environment
 Once you're done working, deactivate the virtual environment:
 ```bash
    deactivate
 ```
+
+ ```bash
+      Set-ExecutionPolicy -ExecutionPolicy Restricted
+ ```
  ### Configuration
  
 - Device lists are read from Router.txt and Switch.txt.                                                                        
