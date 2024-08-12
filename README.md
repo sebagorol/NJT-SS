@@ -104,7 +104,8 @@ The script uses environment variables for sensitive information such as credenti
 
 2. Open the folder and Copy the PATH address. By right clicking the Folder as shown. 
 
-![Screenshot 2024-08-08 160502](https://github.com/user-attachments/assets/b1b3dfd1-8bdd-4668-b5fb-b36059f5d971)
+![Screenshot 2024-08-08 160502](https://github.com/user-attachments/assets/7bf9b0b7-bb98-4102-ba04-97962c56158b)
+
 
 3. Open Windows PowerShell and use "cd" command and paste within apostrophes '' to get to your PATH where your folder is located.
     ```bash
