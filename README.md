@@ -102,7 +102,7 @@ The script uses environment variables for sensitive information such as credenti
 
 ![Screenshot 2024-08-09 165613](https://github.com/user-attachments/assets/a0fa4062-179f-4311-bde4-1eafb8430c87)
 
-2. Open Windows PowerShell and use "cd" command and paste within apostrophes '' to get to your PATH where your folder is located.
+2. Open Windows PowerShell and use "cd" command and to get to your PATH where your folder is located.
     ```bash
       cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Analyst-Sebastian-Skubisz\'
     ```
