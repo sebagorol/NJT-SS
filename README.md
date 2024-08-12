@@ -104,7 +104,7 @@ The script uses environment variables for sensitive information such as credenti
 
 2. Open Windows PowerShell and use "cd" command and to get to your PATH where your folder is located.
     ```bash
-      cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Analyst-Sebastian-Skubisz\'
+      cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Analyst-SS\'
     ```
 3. Write this command before activating the Virtual Enviorment.
    ```bash
@@ -169,7 +169,7 @@ The script uses environment variables for sensitive information such as credenti
 
 1. Change directory to folder PATH.
 ```bash
-   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Analyst-Sebastian-Skubisz\'
+   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Analyst-SS\'
 ```
 2. Activate the virtual environment if not already activated:
 ```bash
