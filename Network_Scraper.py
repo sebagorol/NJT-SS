@@ -39,11 +39,8 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 TNOW = datetime.datetime.now()
 TFORMAT = '{:%m-%d-%Y_%Hh-%Mm-%Ss}'.format(TNOW)
 
-# Define the base path for all templates and file paths
-BASE_PATH = 'C:/Users/CISSSXS4/OneDrive - New Jersey Transit/Desktop/'
-
-# Set the NET_TEXTFSM environment variable
-os.environ["NET_TEXTFSM"] = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates-master/ntc_templates/templates')
+# Determine the base path based on the script's location
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 # Get credentials from environment variables
 username = keyring.get_password("network", "username")
@@ -64,9 +61,6 @@ TEMPLATE_PATH_PING = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates
 TEMPLATE_PATH_VLAN = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates-master/ntc_templates/templates/extreme_ers_show_running_config_vlan.textfsm')
 VRF_ID_OUTPUT_PATH = os.path.join(BASE_PATH, 'Vrf_List.txt')
 EXCEL_OUTPUT_PATH = os.path.join(BASE_PATH, f'Network_Scraper_Output_{TFORMAT}.xlsx')
-# Configure logging
-logging.basicConfig(filename='network_backup.log', level=logging.INFO,
-                    format='%(asctime)s:%(levelname)s:%(message)s')
 
 # Read router and switch lists
 with open(ROUTER_LIST_PATH, 'r') as f:
