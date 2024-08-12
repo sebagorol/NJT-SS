@@ -104,7 +104,7 @@ The script uses environment variables for sensitive information such as credenti
 
 2. Open Windows PowerShell and use "cd" command and to get to your PATH where your folder is located.
     ```bash
-      cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Analyst-SS-main\'
+      cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper-main\'
     ```
 3. Write this command before activating the Virtual Enviorment.
    ```bash
@@ -114,24 +114,28 @@ OR
    ```bash
       Set-ExecutionPolicy RemoteSigned -Scope Process
    ```
+ONCE DONE PUT BACK TO RESTRICTED
+   ```bash
+      Set-ExecutionPolicy -ExecutionPolicy Restricted
+   ```
 4. Activate the Scraper venv by using this command.
    ```bash
-      .\Scraper\Scripts\Activate
+      .\NetScraper\Scraper\Scripts\Activate
    ```  
 5. Install the required libraries:
    ```bash
-      pip install -r requirements.txt
+      pip install -r .\requirements.txt
    ```
    or
    ```bash
-      pip install -r requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
+      pip install -r .\NetScraper\requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
 
    
    If doesn't work than can also manually install using this command.
    
    ```bash
-      pip install  --trusted-host pypi.org --trusted-host files.pythonhosted.org
+      pip install (package) --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
 
 6. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
