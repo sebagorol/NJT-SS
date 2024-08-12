@@ -110,7 +110,7 @@ The script uses environment variables for sensitive information such as credenti
     ```bash
        cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper-main\'
     ```
-4. Create a python virtual enviorment named Scraper.
+4. Create a python virtual enviorment named Scraper by using this command.
 
    ```bash
       python -m venv Scraper
