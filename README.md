@@ -102,24 +102,19 @@ The script uses environment variables for sensitive information such as credenti
 
 ![Screenshot 2024-08-09 165613](https://github.com/user-attachments/assets/a0fa4062-179f-4311-bde4-1eafb8430c87)
 
-2. Open the folder and Copy the PATH address. By right clicking the Folder as shown. 
-
-![Screenshot 2024-08-08 160502](https://github.com/user-attachments/assets/7bf9b0b7-bb98-4102-ba04-97962c56158b)
-
-
-3. Open Windows PowerShell and use "cd" command and paste within apostrophes '' to get to your PATH where your folder is located.
+2. Open Windows PowerShell and use "cd" command and paste within apostrophes '' to get to your PATH where your folder is located.
     ```bash
       cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Analyst-Sebastian-Skubisz\'
     ```
-4. Write this command before activating the Virtual Enviorment.
+3. Write this command before activating the Virtual Enviorment.
    ```bash
       Set-ExecutionPolicy RemoteSigned -Scope Process
    ```
-5. Activate the Scraper venv by using this command.
+4. Activate the Scraper venv by using this command.
    ```bash
       .\Scraper\Scripts\Activate
    ```  
-6. Install the required libraries:
+5. Install the required libraries:
    ```bash
       pip install -r requirements.txt
    ```
@@ -135,7 +130,7 @@ The script uses environment variables for sensitive information such as credenti
       pip install  --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
 
-8. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
+6. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
 
    ```script
       notepad password_encrypt.py
@@ -146,24 +141,24 @@ The script uses environment variables for sensitive information such as credenti
       keyring.set_password("network", "password", "YOUR_PASSWORD")
       keyring.set_password("network", "enable_pass", "YOUR_PASSWORD")
    ```
-9. Run the script so your Credentials are saved the keyring. 
+7. Run the script so your Credentials are saved the keyring. 
    ```script
       python password_encrypt.py
    ```
 
-10. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
+8. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
     
     In PowerShell use these commands to add/edit the IPs.
    ```script
       notepad Switch.txt
       notepad Router.txt
    ```
-11. Ready to RUN!!! Use this command to Start SCRAPING! 
+9. Ready to RUN!!! Use this command to Start SCRAPING! 
    ```script
       python Network_Scraper.py
    ```
 
-12. OUTPUT
+10. OUTPUT
 
 ![Screenshot 2024-08-09 164736](https://github.com/user-attachments/assets/d3a4afd1-f2ac-4db8-b49d-e006fb85e471)
 
