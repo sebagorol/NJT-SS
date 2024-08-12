@@ -95,7 +95,7 @@ The script uses environment variables for sensitive information such as credenti
 
 ### Installation
 
-1. Download the ZIP file and UNZIP in your chosen PATH.
+1. Download the ZIP file and UNZIP in your Desktop Directory.
 
 ![Screenshot 2024-08-09 171453](https://github.com/user-attachments/assets/8bfbcf10-68c7-421a-8e45-de94ef264012)
 
@@ -109,7 +109,7 @@ The script uses environment variables for sensitive information such as credenti
 
 3. Open Windows PowerShell and use "cd" command and paste within apostrophes '' to get to your PATH where your folder is located.
     ```bash
-      cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Scraper-SS\'
+      cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Scraper-Sebastian-Skubisz\'
     ```
 4. Write this command before activating the Virtual Enviorment.
    ```bash
