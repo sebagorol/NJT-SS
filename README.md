@@ -108,6 +108,10 @@ The script uses environment variables for sensitive information such as credenti
     ```
 3. Write this command before activating the Virtual Enviorment.
    ```bash
+     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   ```
+OR
+   ```bash
       Set-ExecutionPolicy RemoteSigned -Scope Process
    ```
 4. Activate the Scraper venv by using this command.
