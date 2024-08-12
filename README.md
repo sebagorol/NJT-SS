@@ -95,6 +95,10 @@ The script uses environment variables for sensitive information such as credenti
 
 ### Installation
 1. Download Python from the Microsoft Store. Must have Python predownloaded to run the script.
+
+![Screenshot 2024-08-12 164458](https://github.com/user-attachments/assets/e3ead71a-280e-4e79-a0c6-6cc0f00595ed)
+
+
 2. Download the ZIP file and move it from Downloads to Desktop. UNZIP/Extract All in your Desktop Directory.
 
 ![Screenshot 2024-08-09 171453](https://github.com/user-attachments/assets/8bfbcf10-68c7-421a-8e45-de94ef264012)
