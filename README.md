@@ -95,7 +95,7 @@ The script uses environment variables for sensitive information such as credenti
 
 ### Installation
 
-1. Download the ZIP file and UNZIP in your Desktop Directory.
+1. Download the ZIP file and move it from Downloads to Desktop. UNZIP in your Desktop Directory.
 
 ![Screenshot 2024-08-09 171453](https://github.com/user-attachments/assets/8bfbcf10-68c7-421a-8e45-de94ef264012)
 
