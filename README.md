@@ -150,44 +150,19 @@ The script uses environment variables for sensitive information such as credenti
       python password_encrypt.py
    ```
 
-10. Now we will convert the PATH with the correct format using the PATH_CONVERTER.py. SAVE!!!
-
-    In PowerShell use this Command to edit the IPs
-   ```script
-       notepad PATH_CONVERTER.py
-   ```
-11. Insert PATH from Earlier in the highlighed AREA shown in the picture.
-
-![image](https://github.com/user-attachments/assets/46ce1481-256f-4f73-957d-5a7dc6347852)
-
-12. Run the script using the command as shown and copy the Converted output as shown.
-   
-   ```script
-       python PATH_CONVERTER.py
-   ```
-![image](https://github.com/user-attachments/assets/f3b69117-3258-4c70-b727-cfca38ce0717)
-
-12. Open Network_Scraper.py in Notepad using PowerShell with the commands shown.
-   ```script
-       notepad Network_Scraper.py
-   ```
-13. Scroll down and Insert the Converted PATH Inide the highlighted area as shown in the Image. SAVE!!!
-
-![Screenshot 2024-08-09 163000](https://github.com/user-attachments/assets/157cd057-113a-457d-940c-5f72c6a72807)
-
-14. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
+10. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
     
     In PowerShell use these commands to add/edit the IPs.
    ```script
       notepad Switch.txt
       notepad Router.txt
    ```
-
-15. Ready to RUN!!! Use this command to Start SCRAPING! 
+11. Ready to RUN!!! Use this command to Start SCRAPING! 
    ```script
       python Network_Scraper.py
    ```
-16. OUTPUT
+
+12. OUTPUT
 
 ![Screenshot 2024-08-09 164736](https://github.com/user-attachments/assets/d3a4afd1-f2ac-4db8-b49d-e006fb85e471)
 
@@ -198,7 +173,7 @@ The script uses environment variables for sensitive information such as credenti
 
 1. Change directory to folder PATH.
 ```bash
-   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Scraper-SS\'
+   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-Network-Scraper-Sebastian-Skubisz\'
 ```
 2. Activate the virtual environment if not already activated:
 ```bash
