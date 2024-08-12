@@ -94,7 +94,7 @@ The script uses environment variables for sensitive information such as credenti
 - Required Python libraries: `netmiko`, `textfsm`, `pandas`, `openpyxl`, `python-dotenv`
 
 ### Installation
-1. Download Python from the Microsoft Store. Must have Python predownloaded to run the script.
+1. Download Python3.6+ from the Microsoft Store. Must have Python predownloaded to run the script.
 
 ![Screenshot 2024-08-12 164458](https://github.com/user-attachments/assets/e3ead71a-280e-4e79-a0c6-6cc0f00595ed)
 
