@@ -104,23 +104,23 @@ The script uses environment variables for sensitive information such as credenti
 
 3. Open Windows PowerShell and use "cd" command and to get to your PATH where your folder is located.
     ```bash
-      cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper-main\'
+       cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper-main\'
     ```
 4.Create a python virtual enviorment named Scraper.
 
    ```bash
-     python -m venv Scraper
+      python -m venv Scraper
    ```
 
 5. Write this command before activating the Virtual Enviorment.
    ```bash
-     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+      Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    ```
 OR
    ```bash
       Set-ExecutionPolicy RemoteSigned -Scope Process
    ```
-ONCE DONE PUT BACK TO RESTRICTED
+ONCE COMPLETED PUT BACK TO RESTRICTED !!!
    ```bash
       Set-ExecutionPolicy -ExecutionPolicy Restricted
    ```
