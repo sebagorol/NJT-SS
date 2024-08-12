@@ -126,7 +126,7 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
    ```
 6. Activate the Scraper venv by using this command.
    ```bash
-      .\NetScraper-main\Scraper\Scripts\Activate
+      .\Scraper\Scripts\Activate
    ```  
 7. Install the required libraries:
    ```bash
