@@ -108,7 +108,7 @@ The script uses environment variables for sensitive information such as credenti
 
 3. Open Windows PowerShell and use "cd" command or COPY&PASTE the command to get to your PATH where your folder is located.
     ```bash
-       cd '.\OneDrive - New Jersey Transit\Desktop\NJT-SS-main\'
+       cd '.\OneDrive - New Jersey Transit\Desktop\NJT-main\'
     ```
 4. Create a python virtual enviorment named Scraper by using this command.
 
@@ -134,7 +134,7 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
    ```  
 7. Install the required libraries:
    ```bash
-      pip install -r .\NetScraper-main\requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
+      pip install -r .\NJT-main\requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
  
    If doesn't work than can also manually install using this command.
@@ -146,7 +146,7 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
 8. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
 
    ```script
-      notepad ./NetScraper-main/password_encrypt.py
+      notepad ./NJT-main/password_encrypt.py
    ```
 
    ```python
@@ -156,19 +156,19 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
    ```
 9. Run the script so your Credentials are saved the keyring. 
    ```script
-      python ./NetScraper-main/password_encrypt.py
+      python ./NJT-main/password_encrypt.py
    ```
 
 10. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
     
     In PowerShell use these commands to add/edit the IPs.
    ```script
-      notepad ./NetScraper-main/Switch.txt
-      notepad ./NetScraper-main/Router.txt
+      notepad ./NJT-main/Switch.txt
+      notepad ./NJT-main/Router.txt
    ```
 11. Ready to RUN!!! Use this command to Start SCRAPING! 
    ```script
-      python ./NetScraper-main/Network_Scraper.py
+      python ./NJT-main/Network_Scraper.py
    ```
 
 12. OUTPUT
@@ -182,7 +182,7 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
 
 1. Change directory to folder PATH.
 ```bash
-   cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper-main\'
+   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-main\'
 ```
 2. Activate the virtual environment if not already activated:
 ```bash
@@ -193,12 +193,12 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
 ```
 3. Add IPs to Switch.txt and Router.txt
 ```script
-      notepad ./NetScraper-main/Switch.txt
-      notepad ./NetScraper-main/Router.txt
+      notepad ./NJT-main/Switch.txt
+      notepad ./NJT-main/Router.txt
 ```
 4. Run the script:
 ```bash
-   python ./NetScraper-main/Network_Scraper.py
+   python ./NJT-main/Network_Scraper.py
 ```
 4. Deactivating the Virtual Environment
 Once you're done working, deactivate the virtual environment:
