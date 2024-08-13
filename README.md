@@ -99,12 +99,19 @@ The script uses environment variables for sensitive information such as credenti
 ![Screenshot 2024-08-12 164458](https://github.com/user-attachments/assets/e3ead71a-280e-4e79-a0c6-6cc0f00595ed)
 
 
-2. Download the ZIP file and move it from Downloads to Desktop. UNZIP/Extract All in your Desktop Directory.
+2. Download the ZIP file and move it from Downloads to Desktop.
 
 ![Screenshot 2024-08-09 171453](https://github.com/user-attachments/assets/8bfbcf10-68c7-421a-8e45-de94ef264012)
 
 
 ![Screenshot 2024-08-09 165613](https://github.com/user-attachments/assets/a0fa4062-179f-4311-bde4-1eafb8430c87)
+
+
+3. UNZIP/Extract All in your Desktop Directory. Remove the highlighted to avoid File PATH too long ERROR!!! 
+
+![Screenshot 2024-08-13 094105](https://github.com/user-attachments/assets/12694409-bc96-4fa3-bb6c-d6584b09d9c5)
+
+![Screenshot 2024-08-13 094015](https://github.com/user-attachments/assets/e52a9f1d-992d-4def-a81e-e6289288db3e)
 
 3. Open Windows PowerShell and use "cd" command or COPY&PASTE the command to get to your PATH where your folder is located.
     ```bash
