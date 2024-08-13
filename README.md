@@ -113,17 +113,17 @@ The script uses environment variables for sensitive information such as credenti
 
 ![Screenshot 2024-08-13 094015](https://github.com/user-attachments/assets/e52a9f1d-992d-4def-a81e-e6289288db3e)
 
-3. Open Windows PowerShell and use "cd" command or COPY&PASTE the command to get to your PATH where your folder is located.
+4. Open Windows PowerShell and use "cd" command or COPY&PASTE the command to get to your PATH where your folder is located.
     ```bash
-       cd '.\OneDrive - New Jersey Transit\Desktop\NJT-main\'
+       cd '.\OneDrive - New Jersey Transit\Desktop\NJT-NetScraper-SS\'
     ```
-4. Create a python virtual enviorment named Scraper by using this command.
+5. Create a python virtual enviorment named Scraper by using this command.
 
    ```bash
       python -m venv Scraper
    ```
 
-5. Write this command before activating the Virtual Enviorment.
+6. Write this command before activating the Virtual Enviorment.
    ```bash
       Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    ```
@@ -135,13 +135,13 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
    ```bash
       Set-ExecutionPolicy -ExecutionPolicy Restricted
    ```
-6. Activate the Scraper venv by using this command.
+7. Activate the Scraper venv by using this command.
    ```bash
       .\Scraper\Scripts\Activate
    ```  
-7. Install the required libraries:
+8. Install the required libraries:
    ```bash
-      pip install -r .\NJT-main\requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
+      pip install -r .\requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
  
    If doesn't work than can also manually install using this command.
@@ -150,10 +150,10 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
       pip install (package) --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
 
-8. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
+9. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
 
    ```script
-      notepad ./NJT-main/password_encrypt.py
+      notepad ./password_encrypt.py
    ```
 
    ```python
@@ -161,24 +161,24 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
       keyring.set_password("network", "password", "YOUR_PASSWORD")
       keyring.set_password("network", "enable_pass", "YOUR_PASSWORD")
    ```
-9. Run the script so your Credentials are saved the keyring. 
+10. Run the script so your Credentials are saved the keyring. 
    ```script
-      python ./NJT-main/password_encrypt.py
+      python ./password_encrypt.py
    ```
 
-10. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
+11. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
     
     In PowerShell use these commands to add/edit the IPs.
    ```script
-      notepad ./NJT-main/Switch.txt
-      notepad ./NJT-main/Router.txt
+      notepad ./Switch.txt
+      notepad ./Router.txt
    ```
-11. Ready to RUN!!! Use this command to Start SCRAPING! 
+12. Ready to RUN!!! Use this command to Start SCRAPING! 
    ```script
-      python ./NJT-main/Network_Scraper.py
+      python ./Network_Scraper.py
    ```
 
-12. OUTPUT
+13. OUTPUT
 
 ![Screenshot 2024-08-09 164736](https://github.com/user-attachments/assets/d3a4afd1-f2ac-4db8-b49d-e006fb85e471)
 
@@ -189,7 +189,7 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
 
 1. Change directory to folder PATH.
 ```bash
-   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-main\'
+   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-NetScraper-SS'
 ```
 2. Activate the virtual environment if not already activated:
 ```bash
@@ -200,12 +200,12 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
 ```
 3. Add IPs to Switch.txt and Router.txt
 ```script
-      notepad ./NJT-main/Switch.txt
-      notepad ./NJT-main/Router.txt
+      notepad ./Switch.txt
+      notepad ./Router.txt
 ```
 4. Run the script:
 ```bash
-   python ./NJT-main/Network_Scraper.py
+   python ./Network_Scraper.py
 ```
 4. Deactivating the Virtual Environment
 Once you're done working, deactivate the virtual environment:
