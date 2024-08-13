@@ -1,26 +1,3 @@
-"""
-Description:
-This script automates network management and data collection tasks. 
-It connects to network devices such as routers and switches, retrieves various configurations and statuses 
-(e.g., VLAN configurations, ARP tables, MAC addresses, interface statuses, etc.), and exports the collected data to an Excel file. 
-The script uses the Netmiko library for SSH connections, TextFSM for parsing command outputs, and OpenPyXL for handling Excel files. 
-Additional functionalities include multithreading for concurrent device access, data merging, filtering, sorting, and applying formatting to the Excel output.
-
-Authorship:
-Developed by: Sebastian Skubisz
-Email: sskubisz9@gmail.com
-Date Created: June 10th, 2024
-Last Modified: August 8th, 2024
-
-Changelog:
-- Added functionality to collect VLAN advanced configurations.
-- Improved data parsing and merging logic.
-- Implemented data filtering, sorting, and deduplication.
-- Enhanced Excel export with formatting and additional columns.
-- Integrated multithreading for faster data collection.
-
-"""
-
 import time
 import datetime
 import logging
@@ -32,9 +9,9 @@ import concurrent.futures
 import pprint
 from openpyxl import load_workbook, Workbook
 from openpyxl.styles import PatternFill, Border, Side, Alignment, Font
-import keyring
 from openpyxl.utils.dataframe import dataframe_to_rows
 import subprocess
+import getpass
 
 # Set the time format for logging and file names
 TNOW = datetime.datetime.now()
@@ -43,16 +20,22 @@ TFORMAT = '{:%m-%d-%Y_%Hh-%Mm-%Ss}'.format(TNOW)
 # Determine the base path based on the script's location
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
-# Get credentials from environment variables
-username = keyring.get_password("network", "username")
-password = keyring.get_password("network", "password")
-enable_pass = keyring.get_password("network", "enable_pass")
+# Prompt user for credentials
+username = input("Enter your username: ")
+password = getpass.getpass("Enter your password: ")
+enable_pass = getpass.getpass("Enter your enable password: ")
 
-# Paths to the templates and device lists
+# Prompt user for router and switch IPs
+router_ip = input("Enter the router IP address: ")
+switch_ip = input("Enter the switch IP address: ")
+
+# Create router and switch lists with the provided IPs
+router_list = [router_ip]
+switch_list = [switch_ip]
+
+# Paths to the templates
 TEMPLATE_PATH_ROUTE = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates-master/ntc_templates/templates/extreme_ers_show_ip_route_vrfid.textfsm')
 TEMPLATE_PATH_VLAN_ADVANCE = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates-master/ntc_templates/templates/extreme_ers_show_vlan_advance.textfsm')
-ROUTER_LIST_PATH = os.path.join(BASE_PATH, 'Router.txt')
-SWITCH_LIST_PATH = os.path.join(BASE_PATH, 'Switch.txt')
 TEMPLATE_PATH_VRF = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates-master/ntc_templates/templates/extreme_ers_show_ip_vrf_id_only.textfsm')
 TEMPLATE_PATH_ARP = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates-master/ntc_templates/templates/extreme_ers_show_ip_arp_vrfid.textfsm')
 TEMPLATE_PATH_INTERFACE = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates-master/ntc_templates/templates/extreme_ers_show_interface_name.textfsm')
@@ -62,13 +45,6 @@ TEMPLATE_PATH_PING = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates
 TEMPLATE_PATH_VLAN = os.path.join(BASE_PATH, 'ntc-templates-master/ntc-templates-master/ntc_templates/templates/extreme_ers_show_running_config_vlan.textfsm')
 VRF_ID_OUTPUT_PATH = os.path.join(BASE_PATH, 'Vrf_List.txt')
 EXCEL_OUTPUT_PATH = os.path.join(BASE_PATH, f'Network_Scraper_Output_{TFORMAT}.xlsx')
-
-# Read router and switch lists
-with open(ROUTER_LIST_PATH, 'r') as f:
-    router_list = [line.strip() for line in f if line.strip()]
-
-with open(SWITCH_LIST_PATH, 'r') as f:
-    switch_list = [line.strip() for line in f if line.strip()]
 
 vrf_ids = set()
 all_data = []
@@ -143,8 +119,6 @@ def collect_port_status_info(net_connect):
     
     port_status_list.extend(port_status_entries)
 
-
-
 def collect_vlan_configurations(net_connect):
     global vlan_configurations
     vlan_output = net_connect.send_command('show running-config module vlan')
@@ -181,8 +155,6 @@ def add_prefix_column(vlan_config_list):
             prefix_length = mask_to_prefix(subnet_mask)
 
             vlan['PREFIX'] = f'/{prefix_length}'
-       
-
         else:
             vlan['PREFIX'] = None
 
@@ -233,7 +205,6 @@ def ping_ips(final_merged_list):
             except Exception as exc:
                 entry = futures[future]
                 print(f'{entry.get("IP_ADDRESS")} generated an exception: {exc}')
-
 
 def backup_device(rtr, device_type):
     device = {
