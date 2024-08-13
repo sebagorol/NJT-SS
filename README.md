@@ -115,7 +115,7 @@ The script uses environment variables for sensitive information such as credenti
 
 4. Open Windows PowerShell and use "cd" command or COPY&PASTE the command to get to your PATH where your folder is located.
     ```bash
-       cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper\'
+       cd '.\OneDrive - New Jersey Transit\Desktop\NJT-SS\'
     ```
 5. Create a python virtual enviorment named Scraper by using this command.
 
@@ -189,7 +189,7 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
 
 1. Change directory to folder PATH.
 ```bash
-   cd '.\OneDrive - New Jersey Transit\Desktop\NetScraper'
+   cd '.\OneDrive - New Jersey Transit\Desktop\NJT-SS'
 ```
 2. Activate the virtual environment if not already activated:
 ```bash
