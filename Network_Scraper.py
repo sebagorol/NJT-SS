@@ -195,32 +195,44 @@ def add_prefix_column(vlan_config_list):
             vlan.update(vlan_items)
     return vlan_config_list
 
+def ping_ip(entry):
+    ip_address = entry.get('IP_ADDRESS')
+    if ip_address:
+        try:
+            # Ping the IP address with 4 packets and a timeout of 5 seconds
+            response = subprocess.run(['ping', '-n', '4', ip_address], capture_output=True, text=True, timeout=5)
+            
+            # Check if any packets were lost
+            if "Received = 4" in response.stdout:
+                return {'IP_ADDRESS': ip_address, 'STATUS': 'Good'}
+            else:
+                return {'IP_ADDRESS': ip_address, 'STATUS': 'Bad'}
+        
+        except subprocess.TimeoutExpired:
+            print(f"Ping to {ip_address} timed out.")
+            return {'IP_ADDRESS': ip_address, 'STATUS': 'Bad'}
+        
+        except Exception as e:
+            print(f"An error occurred while pinging {ip_address}: {e}")
+            return {'IP_ADDRESS': ip_address, 'STATUS': 'Bad'}
+    return None
+
 def ping_ips(final_merged_list):
     global ping_results  # Declare ping_results as global to modify it inside the function
     
-    for entry in final_merged_list:
-        ip_address = entry.get('IP_ADDRESS')
-        if ip_address:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
+        # Start the load operations and mark each future with its IP
+        futures = {executor.submit(ping_ip, entry): entry for entry in final_merged_list}
+        for future in concurrent.futures.as_completed(futures):
             try:
-                # Ping the IP address with 4 packets and a timeout of 5 seconds
-                response = subprocess.run(['ping', '-n', '4', ip_address], capture_output=True, text=True, timeout=5)
-                
-                # Check if any packets were lost
-                if "Received = 4" in response.stdout:
-                    ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Good'})
-                else:
-                    ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Bad'})
-            
-            except subprocess.TimeoutExpired:
-                print(f"Ping to {ip_address} timed out.")
-                ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Bad'})
-            
-            except Exception as e:
-                print(f"An error occurred while pinging {ip_address}: {e}")
-                ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Bad'})
-
-            # Debug output to track progress
-            print(f"Completed pinging {ip_address}, status recorded.")
+                result = future.result()
+                if result:  # Ensure result is not None
+                    ping_results.append(result)
+                    # Debug output to track progress
+                    print(f"Completed pinging {result['IP_ADDRESS']}, status recorded.")
+            except Exception as exc:
+                entry = futures[future]
+                print(f'{entry.get("IP_ADDRESS")} generated an exception: {exc}')
 
 
 def backup_device(rtr, device_type):
