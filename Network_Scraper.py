@@ -34,6 +34,7 @@ from openpyxl import load_workbook, Workbook
 from openpyxl.styles import PatternFill, Border, Side, Alignment, Font
 import keyring
 from openpyxl.utils.dataframe import dataframe_to_rows
+import subprocess
 
 # Set the time format for logging and file names
 TNOW = datetime.datetime.now()
@@ -194,20 +195,33 @@ def add_prefix_column(vlan_config_list):
             vlan.update(vlan_items)
     return vlan_config_list
 
-def ping_ips():
+def ping_ips(final_merged_list):
     global ping_results  # Declare ping_results as global to modify it inside the function
-    # Create a set of matched MAC addresses for quick lookup
-    matched_macs = set(normalize_mac(entry['MAC_ADDRESS']) for entry in mac_table if entry.get('MAC_ADDRESS'))
     
-    for entry in arp_data:
+    for entry in final_merged_list:
         ip_address = entry.get('IP_ADDRESS')
-        mac_address = entry.get('MAC_ADDRESS')
-        if ip_address and mac_address and normalize_mac(mac_address) in matched_macs:
-            response = os.system(f'ping -n 1 {ip_address}')
-            if response == 0:
-                ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Good'})
-            else:
+        if ip_address:
+            try:
+                # Ping the IP address with 4 packets and a timeout of 5 seconds
+                response = subprocess.run(['ping', '-n', '4', ip_address], capture_output=True, text=True, timeout=5)
+                
+                # Check if any packets were lost
+                if "Received = 4" in response.stdout:
+                    ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Good'})
+                else:
+                    ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Bad'})
+            
+            except subprocess.TimeoutExpired:
+                print(f"Ping to {ip_address} timed out.")
                 ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Bad'})
+            
+            except Exception as e:
+                print(f"An error occurred while pinging {ip_address}: {e}")
+                ping_results.append({'IP_ADDRESS': ip_address, 'STATUS': 'Bad'})
+
+            # Debug output to track progress
+            print(f"Completed pinging {ip_address}, status recorded.")
+
 
 def backup_device(rtr, device_type):
     device = {
@@ -337,12 +351,15 @@ def merge_with_ping_results(merged_list, ping_results):
     return merged_list
 
 # Ping IPs after collecting data from devices
-ping_ips()
-
-# Merge tables and add ping results
+# Example usage of ping_ips:
 merged_list = merge_mac_and_port_tables(mac_table, port_list)
 merged_list_with_ips_and_vrf = merge_with_arp_table(merged_list, arp_data)
 final_merged_list = merge_with_port_status(merged_list_with_ips_and_vrf, port_status_list)
+
+# 2. Now, only ping the IPs that are in the final merged list
+ping_ips(final_merged_list)
+
+# 3. Merge the ping results back into the final list
 final_list_with_pings = merge_with_ping_results(final_merged_list, ping_results)
 
 # Export the final merged list to an Excel file
