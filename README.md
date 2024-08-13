@@ -151,35 +151,12 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
       pip install (package) --trusted-host pypi.org --trusted-host files.pythonhosted.org
    ```
 
-9. Save your Network Credentials in the Keyring using password_encrpyt.py. SAVE!!!
-
-   ```script
-      notepad ./password_encrypt.py
-   ```
-
-   ```python
-      keyring.set_password("network", "username", "YOUR_USERNAME")
-      keyring.set_password("network", "password", "YOUR_PASSWORD")
-      keyring.set_password("network", "enable_pass", "YOUR_PASSWORD")
-   ```
-10. Run the script so your Credentials are saved the keyring. 
-   ```script
-      python ./password_encrypt.py
-   ```
-
-11. Place your device IPs in Switch.txt and Router.txt by double clicking the text file in the Folder.
-    
-    In PowerShell use these commands to add/edit the IPs.
-   ```script
-      notepad ./Switch.txt
-      notepad ./Router.txt
-   ```
-12. Ready to RUN!!! Use this command to Start SCRAPING! 
+9. Ready to RUN!!! Use this command to Start SCRAPING! 
    ```script
       python ./Network_Scraper.py
    ```
 
-13. OUTPUT
+10. OUTPUT
 
 ![Screenshot 2024-08-09 164736](https://github.com/user-attachments/assets/d3a4afd1-f2ac-4db8-b49d-e006fb85e471)
 
