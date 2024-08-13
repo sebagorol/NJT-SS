@@ -31,9 +31,9 @@ The script collects various types of network data:
 The script implements concurrent execution using Python's `concurrent.futures.ThreadPoolExecutor` to enhance efficiency by connecting to multiple devices simultaneously.
 
 **Key Points:**
-- Utilizes multithreading to perform concurrent data collection.
+- Utilizes multithreading to perform concurrent data collection and ping operations.
 - Configurable number of threads to optimize performance.
-- Ensures efficient use of resources during data collection.
+- Ensures efficient use of resources during data collection and ping tests.
 
 ### 4. Data Merging and Processing
 Collected data from different sources is merged to create a comprehensive view of the network status. This involves:
@@ -52,6 +52,7 @@ The script performs ping tests on IP addresses collected from ARP entries to det
 
 **Key Points:**
 - Pings IP addresses to check their availability.
+- Uses multithreading to perform pings concurrently, speeding up the process.
 - Records ping results (Good/Bad) for further analysis.
 - Helps in diagnosing network issues.
 
