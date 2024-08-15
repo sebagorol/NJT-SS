@@ -176,12 +176,8 @@ ONCE COMPLETED PUT BACK TO RESTRICTED !!!
 ```bash
    .\Scraper\Scripts\Activate
 ```
-3. Add IPs to Switch.txt and Router.txt
-```script
-      notepad ./Switch.txt
-      notepad ./Router.txt
-```
-4. Run the script:
+
+3. Run the script:
 ```bash
    python ./Network_Scraper.py
 ```
